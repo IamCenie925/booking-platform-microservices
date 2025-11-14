@@ -1,0 +1,23 @@
+server:
+  port: 8084 # Port riêng cho service này
+
+spring:
+  application:
+    name: NOTIFICATION-SERVICE # VIẾT HOA (để khớp với Gateway)
+
+  # Cấu hình kết nối RabbitMQ (để lắng nghe)
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+# Cấu hình để đăng ký với Eureka
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    # Ép nó đăng ký bằng 'localhost'
+    hostname: localhost
+    prefer-ip-address: false

@@ -1,0 +1,30 @@
+server:
+  port: 8082 # Port riêng cho service này
+
+spring:
+  application:
+    name: FACILITY-SERVICE # Đặt tên VIẾT HOA (để khớp với Gateway)
+
+  # Cấu hình kết nối đến database pg_facility (từ docker-compose)
+  datasource:
+    url: jdbc:postgresql://localhost:5434/facilitydb?sessionTimezone=Asia/Ho_Chi_Minh
+    username: user
+    password: pass
+    driver-class-name: org.postgresql.Driver
+    
+  jpa:
+    hibernate:
+      ddl-auto: update # Tự động cập nhật schema 
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+
+# Cấu hình để đăng ký với Eureka
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    hostname: localhost
+    prefer-ip-address: false

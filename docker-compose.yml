@@ -1,0 +1,42 @@
+version: "3.9"
+services:
+  pg_user:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: userdb
+      TZ: Asia/Ho_Chi_Minh
+    ports: ["5433:5432"]
+    volumes: ["pg_user_data:/var/lib/postgresql/data"]
+
+  pg_facility:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: facilitydb
+      TZ: Asia/Ho_Chi_Minh
+    ports: ["5434:5432"]
+    volumes: ["pg_facility_data:/var/lib/postgresql/data"]
+
+  pg_booking:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: bookingdb
+      TZ: Asia/Ho_Chi_Minh
+    ports: ["5435:5432"]
+    volumes: ["pg_booking_data:/var/lib/postgresql/data"]
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+volumes:
+  pg_user_data:
+  pg_facility_data:
+  pg_booking_data:

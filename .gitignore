@@ -1,0 +1,19 @@
+# Bỏ qua các file biên dịch và đóng gói của Maven
+target/
+*.jar
+*.war
+
+# Bỏ qua file log
+*.log
+
+# Bỏ qua các file cài đặt của IDE
+.idea/
+.vscode/
+*.iml
+
+# Bỏ qua thư mục của Maven Wrapper
+.mvn/
+
+# Bỏ qua các file hệ điều hành
+.DS_Store
+Thumbs.db

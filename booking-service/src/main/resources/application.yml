@@ -1,0 +1,38 @@
+server:
+  port: 8083 # Port riêng cho service này
+
+spring:
+  application:
+    name: BOOKING-SERVICE # VIẾT HOA (để khớp với Gateway)
+
+  # Cấu hình kết nối đến database pg_booking (từ docker-compose)
+  datasource:
+    url: jdbc:postgresql://localhost:5435/bookingdb?sessionTimezone=Asia/Ho_Chi_Minh
+    username: user
+    password: pass
+    driver-class-name: org.postgresql.Driver
+    
+  jpa:
+    hibernate:
+      ddl-auto: update # Tự động cập nhật schema 
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+
+  # Cấu hình RabbitMQ 
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest # Mặc định
+    password: guest # Mặc định
+
+# Cấu hình để đăng ký với Eureka
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    # Ép nó đăng ký bằng 'localhost'
+    hostname: localhost
+    prefer-ip-address: false

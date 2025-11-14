@@ -1,0 +1,16 @@
+server:
+  port: 8761 # Port tiêu chuẩn cho Eureka
+
+spring:
+  application:
+    name: discovery # Tên của service này
+
+eureka:
+  client:
+    # Eureka là server, nên nó không cần tự đăng ký với chính nó
+    register-with-eureka: false
+    # Và cũng không cần lấy thông tin từ chính nó
+    fetch-registry: false
+  server:
+    # Tắt chế độ tự bảo vệ khi mạng không ổn định (tốt cho môi...
+    wait-time-in-ms-when-sync-empty: 0
