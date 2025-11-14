@@ -1,4 +1,4 @@
-# 🚀 Facility Booking Platform - Microservices Demo
+# 🚀 Facility Booking Platform - Microservices 
 
 This is a complete end-to-end microservices project for a facility booking system. It is built using Spring Boot & Spring Cloud, with Docker for infrastructure and RabbitMQ for asynchronous messaging.
 
