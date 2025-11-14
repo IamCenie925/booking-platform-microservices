@@ -12,9 +12,11 @@
 
 ---
 
-🗓️ **Timeline:** November 2025 – Present 
+🗓️ **Timeline:** November 2025
+
 👤 **Author:** Nguyen Thi Xuan Nhi (aka Cenie)
 
+---
 This is a complete end-to-end microservices project for a facility booking system. It is built using Spring Boot & Spring Cloud, with Docker for infrastructure and RabbitMQ for asynchronous messaging.
 
 This project demonstrates core microservice patterns:
