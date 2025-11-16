@@ -7,6 +7,19 @@ spring:
 
   cloud:
     gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]': # Áp dụng cho TẤT CẢ các đường dẫn
+            allowed-origins:
+              - "http://localhost:3000" # Cho phép FE ở port 3000 cho React/Vue
+              - "http://127.0.0.1:5500" # Cho phép FE ở port 5500 cho Live Server
+            allowed-methods: # Cho phép các phương thức này
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - OPTIONS
+            allowed-headers: "*"
       server:
         webflux:
           # 1. Khối định tuyến (routes)
